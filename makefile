@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS= -Wall -std=c++17
-LINK=
+LINK= -O3 -pthread
 
 all:
 
