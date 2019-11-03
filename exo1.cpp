@@ -22,19 +22,17 @@ int main() {
 void crible(int limit){
   
   unsigned long  i, j;
-  int* list = new int[limit];
-
-  memset(list, 1, limit*sizeof(unsigned int));
+  static bool* list = new bool[limit];
 
   for ( i = 3; i < limit; i+=2){
     for(j = i+i; j < limit; j += i) 
-      list[j] = 0;
+      list[j] = 1;
     
   }
 
   // Result 
   for ( i = 2; i < limit; ++i)
-    if(list[i])
+    if(!list[i])
       std::cout << i << std::endl;
  
 }
