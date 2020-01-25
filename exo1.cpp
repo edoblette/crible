@@ -51,11 +51,13 @@ void crible(size_t LIMIT, int THREAD){
 }
 
 void prime(int  start, size_t LIMIT, int THREAD){
+  
   int offset = (2 * THREAD); //on faut un offset pour conserver le decalage et donc rester son canal de calcul
   for ( size_t i = start; i*i < LIMIT; i += offset) //on calcul jusqu'a la racine de notre limite
     if(list[i]) //si nombre est possiblement premier
       for(size_t j = i*i; j < LIMIT; j += i<<1) //ici on fait un decalage binaire, c'est plus rapide qu'un X2
           list[j] = false; //si nombre n'est pas premier
+     
 }
 
 void result(size_t LIMIT){
